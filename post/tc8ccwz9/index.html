@@ -48,8 +48,9 @@
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 维基萌博客存档</p>
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客存档</p>
     </div>
   </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
 </body>
 </html>
