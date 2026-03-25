@@ -6,11 +6,12 @@
   --text: #1f2937;
   --text-secondary: #6b7280;
   --text-tertiary: #9ca3af;
-  --primary: #e9819d;
-  --primary-light: #fce8eb;
-  --primary-dark: #d4687f;
-  --link: #e9819d;
-  --link-hover: #d4687f;
+  --primary: #4b7bec;
+  --primary-light: #eef2fc;
+  --primary-dark: #3867d6;
+  --link: #4b7bec;
+  --link-hover: #3867d6;
+  --accent: #34d399;
   --border: #e5e7eb;
   --border-light: #f3f4f6;
   --max-width: 820px;
@@ -32,11 +33,12 @@
     --text: #f3f4f6;
     --text-secondary: #9ca3af;
     --text-tertiary: #6b7280;
-    --primary: #f0a0b5;
-    --primary-light: #3b1a2a;
-    --primary-dark: #e9819d;
-    --link: #f0a0b5;
-    --link-hover: #f5bfcf;
+    --primary: #7fa8f5;
+    --primary-light: #1e2a45;
+    --primary-dark: #a0c0ff;
+    --link: #7fa8f5;
+    --link-hover: #a0c0ff;
+    --accent: #34d399;
     --border: #374151;
     --border-light: #1f2937;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -212,7 +214,7 @@ main {
 
 .post-type-badge.blog {
   color: #fff;
-  background: var(--primary);
+  background: #64748b;
 }
 
 /* ========== Post Excerpt ========== */
@@ -372,21 +374,23 @@ main {
   text-decoration: underline;
 }
 
-/* ========== Tweet Image Grid ========== */
+/* ========== Tweet Image Grid (List View - Compact) ========== */
 .tweet-media-grid {
   display: grid;
-  grid-gap: 2px;
-  margin: 10px 0;
+  grid-gap: 3px;
+  margin: 8px 0;
   border-radius: var(--radius);
   overflow: hidden;
+  max-width: 400px;
 }
 
 .tweet-media-grid.count-1 {
   grid-template-columns: 1fr;
+  max-width: 320px;
 }
 
 .tweet-media-grid.count-1 img {
-  max-height: 380px;
+  max-height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -396,12 +400,7 @@ main {
 }
 
 .tweet-media-grid.count-3 {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.tweet-media-grid.count-3 .tweet-media-item:first-child {
-  grid-row: 1 / 3;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .tweet-media-grid.count-4 {
@@ -414,10 +413,12 @@ main {
   object-fit: cover;
   cursor: zoom-in;
   display: block;
+  max-height: 150px;
 }
 
 .tweet-media-grid.count-1 .tweet-media-item {
   aspect-ratio: auto;
+  max-height: 200px;
 }
 
 /* ========== Tweet Detail ========== */
@@ -449,18 +450,20 @@ main {
 /* ========== Tweet Detail Media ========== */
 .tweet-detail-media-grid {
   display: grid;
-  grid-gap: 2px;
+  grid-gap: 4px;
   margin: 12px 0;
   border-radius: var(--radius);
   overflow: hidden;
+  max-width: 560px;
 }
 
 .tweet-detail-media-grid.count-1 {
   grid-template-columns: 1fr;
+  max-width: 480px;
 }
 
 .tweet-detail-media-grid.count-1 img {
-  max-height: 500px;
+  max-height: 360px;
   width: 100%;
   object-fit: cover;
 }
@@ -470,12 +473,7 @@ main {
 }
 
 .tweet-detail-media-grid.count-3 {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.tweet-detail-media-grid.count-3 .tweet-detail-media-item:first-child {
-  grid-row: 1 / 3;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .tweet-detail-media-grid.count-4 {
@@ -484,7 +482,7 @@ main {
 
 .tweet-detail-media-item {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4/3;
   object-fit: cover;
   cursor: zoom-in;
   display: block;
@@ -492,12 +490,14 @@ main {
 
 .tweet-detail-media-grid.count-1 .tweet-detail-media-item {
   aspect-ratio: auto;
+  max-height: 360px;
 }
 
 .tweet-detail-video {
   width: 100%;
   border-radius: var(--radius);
-  max-height: 500px;
+  max-height: 400px;
+  max-width: 560px;
 }
 
 /* ========== Post Detail ========== */
@@ -637,6 +637,13 @@ main {
   gap: 8px;
 }
 
+/* Tags below post content */
+.post-detail > .tag-list {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
 /* ========== Content Series Sections (Inline Tweet Content) ========== */
 .content-series-section {
   margin-top: 12px;
@@ -672,20 +679,45 @@ main {
 /* ========== Vote Card ========== */
 .vote-card {
   margin-bottom: 12px;
-  padding: 14px;
-  background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.vote-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+}
+
+.vote-header-icon {
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .vote-title {
   font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.vote-body {
+  padding: 12px 14px;
+  background: var(--bg-secondary);
 }
 
 .vote-option {
   margin-bottom: 10px;
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
 }
 
 .vote-option:last-child {
@@ -696,23 +728,26 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
-  font-size: 0.875rem;
+  margin-bottom: 6px;
+  gap: 8px;
 }
 
 .vote-option-title {
   flex: 1;
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 500;
 }
 
 .vote-option-votes {
   color: var(--text-secondary);
-  font-size: 0.8125rem;
-  margin-left: 8px;
+  font-size: 0.8rem;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .vote-option-bar {
-  height: 6px;
+  height: 5px;
   background: var(--bg-tertiary);
   border-radius: 3px;
   overflow: hidden;
@@ -722,17 +757,20 @@ main {
   height: 100%;
   background: var(--primary);
   border-radius: 3px;
-  min-width: 2px;
+  min-width: 3px;
+  transition: width 0s;
 }
 
 .vote-option-bar-inner.max-vote {
   background: #34d399;
 }
 
-.vote-status {
-  margin-top: 10px;
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
+.vote-footer {
+  padding: 6px 14px 10px;
+  background: var(--bg-secondary);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-light);
 }
 
 /* ========== ACGN Card ========== */
@@ -882,16 +920,8 @@ main {
   }
   .tweet-media-grid.count-3 {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  .tweet-media-grid.count-3 .tweet-media-item:first-child {
-    grid-row: auto;
   }
   .tweet-detail-media-grid.count-3 {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  .tweet-detail-media-grid.count-3 .tweet-detail-media-item:first-child {
-    grid-row: auto;
   }
 }
