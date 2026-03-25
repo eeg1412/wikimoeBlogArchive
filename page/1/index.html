@@ -28,14 +28,19 @@
       
       <div class="post-list">
         
-    <article class="post-card">
-      <h2><a href="https://eeg1412.github.io/wikimoeBlogArchive/post/tc8ccwz9/">推文</a></h2>
+    <article class="post-card tweet-card">
       <div class="post-meta">
         <span class="post-date">2026-03-21 11:30:21</span>
         <span class="post-category">圣地巡礼</span>
         <span class="post-type-badge tweet">推文</span>
       </div>
-      <p class="post-excerpt">欢迎加入 极东魔术昼寝结社之夏</p>
+      <div class="tweet-body">
+        <p class="tweet-text">欢迎加入 极东魔术昼寝结社之夏</p>
+        <div class="tweet-media-grid"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f69a9f8080e087a4793.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f69a9f8080e087a4793.webp" alt="" loading="lazy"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f4ba9f8080e087a4773.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f4ba9f8080e087a4773.webp" alt="" loading="lazy"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be100da9f8080e087a4888.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be100da9f8080e087a4888.webp" alt="" loading="lazy"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f21a9f8080e087a473d.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f21a9f8080e087a473d.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="tweet-footer">
+        <a href="https://eeg1412.github.io/wikimoeBlogArchive/post/tc8ccwz9/">查看详情 &rarr;</a>
+      </div>
     </article>
       </div>
       
@@ -47,5 +52,26 @@
     </div>
   </footer>
   <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <div class="lightbox-overlay" id="lightbox"><img id="lightbox-img" alt=""></div>
+  <script>
+  (function(){
+    var overlay = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('img[data-href], .post-content img');
+      if (!img || overlay.contains(img)) return;
+      var full = img.getAttribute('data-href') || img.src;
+      lbImg.src = full;
+      overlay.classList.add('active');
+    });
+    overlay.addEventListener('click', function() {
+      overlay.classList.remove('active');
+      lbImg.src = '';
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { overlay.classList.remove('active'); lbImg.src = ''; }
+    });
+  })();
+  </script>
 </body>
 </html>
