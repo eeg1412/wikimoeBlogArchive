@@ -599,7 +599,6 @@ main {
 .post-detail > .tag-list {
   margin-top: 20px;
   padding-top: 14px;
-  border-top: 1px solid var(--border-light);
 }
 
 /* ========== Content Series Sections (Inline Tweet Content) ========== */
@@ -758,7 +757,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .acgn-cover img {
@@ -767,38 +765,70 @@ main {
   object-fit: cover;
   border-radius: 4px;
   display: block;
+  flex-shrink: 0;
 }
 
+/* 评分组件 - 仿 Rating.vue：文字在上层(z-index 2)，进度条绝对定位在背后(z-index 1) */
 .acgn-rating {
-  font-size: 0.8125rem;
-  margin: 4px 0;
+  position: relative;
+  overflow: hidden;
+  margin-top: 5px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.acgn-rating-text {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-
-.acgn-rating-score {
-  font-weight: 700;
-  color: #f59e0b;
+  justify-content: center;
+  height: 28px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+  padding-top: 2px;
 }
 
 .acgn-rating-sep {
   display: inline-block;
   width: 1px;
-  height: 0.75em;
-  background: var(--border);
+  height: 0.875rem;
+  background: var(--primary);
+  opacity: 0.4;
+  margin: 0 4px;
   flex-shrink: 0;
 }
 
-.acgn-rating-level {
-  color: var(--primary);
-  font-weight: 500;
+.acgn-rating-pbar {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border: 1px solid rgba(75, 123, 236, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.acgn-rating-pbar-inner {
+  height: 100%;
+  background: rgba(75, 123, 236, 0.15);
 }
 
 .acgn-no-rating {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.acgn-no-rating-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
   color: var(--text-tertiary);
-  font-weight: 400;
+  font-size: 0.75rem;
 }
 
 .acgn-info {
