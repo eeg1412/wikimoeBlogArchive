@@ -376,49 +376,20 @@ main {
 
 /* ========== Tweet Image Grid (List View - Compact) ========== */
 .tweet-media-grid {
-  display: grid;
-  grid-gap: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
   margin: 8px 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  max-width: 400px;
-}
-
-.tweet-media-grid.count-1 {
-  grid-template-columns: 1fr;
-  max-width: 320px;
-}
-
-.tweet-media-grid.count-1 img {
-  max-height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.tweet-media-grid.count-2 {
-  grid-template-columns: 1fr 1fr;
-}
-
-.tweet-media-grid.count-3 {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.tweet-media-grid.count-4 {
-  grid-template-columns: 1fr 1fr;
 }
 
 .tweet-media-item {
-  width: 100%;
-  aspect-ratio: 1;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
+  border-radius: 4px;
   cursor: zoom-in;
   display: block;
-  max-height: 150px;
-}
-
-.tweet-media-grid.count-1 .tweet-media-item {
-  aspect-ratio: auto;
-  max-height: 200px;
+  flex-shrink: 0;
 }
 
 /* ========== Tweet Detail ========== */
@@ -449,48 +420,20 @@ main {
 
 /* ========== Tweet Detail Media ========== */
 .tweet-detail-media-grid {
-  display: grid;
-  grid-gap: 4px;
-  margin: 12px 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  max-width: 560px;
-}
-
-.tweet-detail-media-grid.count-1 {
-  grid-template-columns: 1fr;
-  max-width: 480px;
-}
-
-.tweet-detail-media-grid.count-1 img {
-  max-height: 360px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.tweet-detail-media-grid.count-2 {
-  grid-template-columns: 1fr 1fr;
-}
-
-.tweet-detail-media-grid.count-3 {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.tweet-detail-media-grid.count-4 {
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 10px 0;
 }
 
 .tweet-detail-media-item {
-  width: 100%;
-  aspect-ratio: 4/3;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
+  border-radius: 4px;
   cursor: zoom-in;
   display: block;
-}
-
-.tweet-detail-media-grid.count-1 .tweet-detail-media-item {
-  aspect-ratio: auto;
-  max-height: 360px;
+  flex-shrink: 0;
 }
 
 .tweet-detail-video {
@@ -918,10 +861,8 @@ main {
     width: 60px;
     height: 84px;
   }
-  .tweet-media-grid.count-3 {
-    grid-template-columns: 1fr 1fr;
-  }
-  .tweet-detail-media-grid.count-3 {
-    grid-template-columns: 1fr 1fr;
+  .tweet-media-grid,
+  .tweet-detail-media-grid {
+    gap: 3px;
   }
 }
