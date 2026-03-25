@@ -402,6 +402,7 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+  margin: 0;
 }
 
 /* 视频播放按鈕 - 半透明蒙层 + 三角形 */
@@ -478,36 +479,37 @@ main {
   line-height: 1.9;
 }
 
-.post-content p {
+/* 博文富文本专用层 */
+.rich-content p {
   margin-bottom: 16px;
 }
-.post-content h2 {
+.rich-content h2 {
   font-size: 1.35rem;
   margin: 28px 0 14px;
   font-weight: 600;
 }
-.post-content h3 {
+.rich-content h3 {
   font-size: 1.15rem;
   margin: 22px 0 10px;
   font-weight: 600;
 }
-.post-content h4 {
+.rich-content h4 {
   font-size: 1.05rem;
   margin: 18px 0 8px;
   font-weight: 600;
 }
 
-.post-content ul,
-.post-content ol {
+.rich-content ul,
+.rich-content ol {
   padding-left: 24px;
   margin-bottom: 16px;
 }
 
-.post-content li {
+.rich-content li {
   margin-bottom: 4px;
 }
 
-.post-content img {
+.rich-content img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius);
@@ -516,14 +518,14 @@ main {
   cursor: zoom-in;
 }
 
-.post-content video {
+.rich-content video {
   max-width: 100%;
   border-radius: var(--radius);
   margin: 14px 0;
   display: block;
 }
 
-.post-content blockquote {
+.rich-content blockquote {
   border-left: 3px solid var(--primary);
   padding: 8px 16px;
   color: var(--text-secondary);
@@ -532,7 +534,7 @@ main {
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-.post-content pre {
+.rich-content pre {
   background: var(--bg-secondary);
   padding: 16px;
   border-radius: var(--radius);
@@ -543,7 +545,7 @@ main {
   line-height: 1.6;
 }
 
-.post-content code {
+.rich-content code {
   background: var(--bg-secondary);
   padding: 2px 6px;
   border-radius: 3px;
@@ -551,32 +553,32 @@ main {
   font-size: 0.875em;
 }
 
-.post-content pre code {
+.rich-content pre code {
   background: none;
   padding: 0;
 }
 
-.post-content a {
+.rich-content a {
   color: var(--primary);
 }
-.post-content a:hover {
+.rich-content a:hover {
   text-decoration: underline;
 }
 
-.post-content table {
+.rich-content table {
   width: 100%;
   border-collapse: collapse;
   margin: 16px 0;
 }
 
-.post-content th,
-.post-content td {
+.rich-content th,
+.rich-content td {
   border: 1px solid var(--border);
   padding: 8px 12px;
   text-align: left;
 }
 
-.post-content th {
+.rich-content th {
   background: var(--bg-secondary);
   font-weight: 600;
 }
@@ -753,6 +755,10 @@ main {
 .acgn-cover {
   flex-shrink: 0;
   width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .acgn-cover img {

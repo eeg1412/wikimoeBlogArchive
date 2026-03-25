@@ -53,7 +53,7 @@
   <script src="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.post-content img').forEach(function(img) {
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;
       if (!href) return;
@@ -63,7 +63,7 @@
       img.parentNode.insertBefore(a, img);
       a.appendChild(img);
     });
-    document.querySelectorAll('.post-content video').forEach(function(video) {
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
       if (video.closest('a')) return;
       var sourceEl = video.querySelector('source');
       var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
