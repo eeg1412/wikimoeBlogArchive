@@ -79,7 +79,7 @@
   <script src="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.post-content img, .tweet-media-item, .tweet-detail-media-item').forEach(function(img) {
+    document.querySelectorAll('.post-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;
       if (!href) return;
@@ -89,7 +89,7 @@
       img.parentNode.insertBefore(a, img);
       a.appendChild(img);
     });
-    document.querySelectorAll('.post-content video, .tweet-detail-video').forEach(function(video) {
+    document.querySelectorAll('.post-content video').forEach(function(video) {
       if (video.closest('a')) return;
       var sourceEl = video.querySelector('source');
       var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
@@ -102,6 +102,12 @@
       a.appendChild(video);
     });
     GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
   });
   </script>
 </body>

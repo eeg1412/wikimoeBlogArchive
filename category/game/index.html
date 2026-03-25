@@ -36,7 +36,7 @@
       <h1 class="page-title">分类：游戏<small>(1 篇)</small></h1>
       <div class="post-list">
         
-    <article class="post-card tweet-card">
+    <article class="post-card tweet-card" data-href="https://eeg1412.github.io/wikimoeBlogArchive/post/tc4ecne9/">
       <div class="post-meta">
         <span class="post-type-badge tweet">推文</span>
         <span class="post-author">广树</span>
@@ -48,7 +48,6 @@
         <div class="content-series-section"><div class="acgn-card">
     <div class="acgn-cover">
       <img src="https://www.wikimoe.com/upload/gameCover/7ea/69b0c3aba9f8080e087258ae.webp?v=1773192107059" alt="告别回忆 双想 ～Not always true～" loading="lazy">
-      
     </div>
     <div class="acgn-info">
       <div class="acgn-title">
@@ -56,6 +55,7 @@
         告别回忆 双想 ～Not always true～
       </div>
       
+      <div class="acgn-rating acgn-no-rating">暂无评分</div>
       <div class="acgn-summary">“我觅见了生命中的唯一，而后——”</div>
     </div>
   </div></div>
@@ -77,7 +77,7 @@
   <script src="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.post-content img, .tweet-media-item, .tweet-detail-media-item').forEach(function(img) {
+    document.querySelectorAll('.post-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;
       if (!href) return;
@@ -87,7 +87,7 @@
       img.parentNode.insertBefore(a, img);
       a.appendChild(img);
     });
-    document.querySelectorAll('.post-content video, .tweet-detail-video').forEach(function(video) {
+    document.querySelectorAll('.post-content video').forEach(function(video) {
       if (video.closest('a')) return;
       var sourceEl = video.querySelector('source');
       var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
@@ -100,6 +100,12 @@
       a.appendChild(video);
     });
     GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
   });
   </script>
 </body>

@@ -36,7 +36,7 @@
       <h1 class="page-title">分类：圣地巡礼<small>(1 篇)</small></h1>
       <div class="post-list">
         
-    <article class="post-card tweet-card">
+    <article class="post-card tweet-card" data-href="https://eeg1412.github.io/wikimoeBlogArchive/post/tc8ccwz9/">
       <div class="post-meta">
         <span class="post-type-badge tweet">推文</span>
         <span class="post-author">广树</span>
@@ -45,7 +45,7 @@
       </div>
       <div class="tweet-body">
         <div class="tweet-text">欢迎加入 极东魔术昼寝结社之夏</div>
-        <div class="tweet-media-grid"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f69a9f8080e087a4793.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f69a9f8080e087a4793.webp" alt="1000039031" loading="lazy" width="1280" height="960"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f4ba9f8080e087a4773.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f4ba9f8080e087a4773.webp" alt="1000039050" loading="lazy" width="1280" height="960"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be100da9f8080e087a4888.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be100da9f8080e087a4888.webp" alt="1000038920" loading="lazy" width="1280" height="960"><img class="tweet-media-item" src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f21a9f8080e087a473d.webp" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f21a9f8080e087a473d.jpg" alt="1000039062" loading="lazy" width="1280" height="960"></div>
+        <div class="media-grid"><a class="media-item glightbox" href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f69a9f8080e087a4793.webp"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f69a9f8080e087a4793.webp" alt="1000039031" loading="lazy"></a><a class="media-item glightbox" href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f4ba9f8080e087a4773.webp"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f4ba9f8080e087a4773.webp" alt="1000039050" loading="lazy"></a><a class="media-item glightbox" href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be100da9f8080e087a4888.webp"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be100da9f8080e087a4888.webp" alt="1000038920" loading="lazy"></a><a class="media-item glightbox" href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/69be0f21a9f8080e087a473d.jpg"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202603/thum-69be0f21a9f8080e087a473d.webp" alt="1000039062" loading="lazy"></a></div>
       </div>
       <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoeBlogArchive/tag/%E4%B8%AD%E4%BA%8C%E7%97%85%E4%B9%9F%E8%A6%81%E8%B0%88%E6%81%8B%E7%88%B1/">#中二病也要谈恋爱</a></div>
       <div class="tweet-footer">
@@ -64,7 +64,7 @@
   <script src="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.post-content img, .tweet-media-item, .tweet-detail-media-item').forEach(function(img) {
+    document.querySelectorAll('.post-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;
       if (!href) return;
@@ -74,7 +74,7 @@
       img.parentNode.insertBefore(a, img);
       a.appendChild(img);
     });
-    document.querySelectorAll('.post-content video, .tweet-detail-video').forEach(function(video) {
+    document.querySelectorAll('.post-content video').forEach(function(video) {
       if (video.closest('a')) return;
       var sourceEl = video.querySelector('source');
       var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
@@ -87,6 +87,12 @@
       a.appendChild(video);
     });
     GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
   });
   </script>
 </body>
