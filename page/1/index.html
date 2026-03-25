@@ -9,6 +9,7 @@
   <meta name="author" content="广树">
   <link rel="canonical" href="https://eeg1412.github.io/wikimoeBlogArchive/">
   <link rel="stylesheet" href="https://eeg1412.github.io/wikimoeBlogArchive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.css">
   <link rel="alternate" type="application/rss+xml" title="维基萌博客存档" href="https://eeg1412.github.io/wikimoeBlogArchive/feed.xml">
   <meta property="og:title" content="维基萌博客存档">
   <meta property="og:description" content="用于维基萌博客的存档">
@@ -52,26 +53,33 @@
     </div>
   </footer>
   <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
-  <div class="lightbox-overlay" id="lightbox"><img id="lightbox-img" alt=""></div>
+  <script src="https://eeg1412.github.io/wikimoeBlogArchive/glightbox/glightbox.min.js"></script>
   <script>
-  (function(){
-    var overlay = document.getElementById('lightbox');
-    var lbImg = document.getElementById('lightbox-img');
-    document.addEventListener('click', function(e) {
-      var img = e.target.closest('img[data-href], .post-content img');
-      if (!img || overlay.contains(img)) return;
-      var full = img.getAttribute('data-href') || img.src;
-      lbImg.src = full;
-      overlay.classList.add('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.post-content img, .tweet-media-item').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
     });
-    overlay.addEventListener('click', function() {
-      overlay.classList.remove('active');
-      lbImg.src = '';
+    document.querySelectorAll('.post-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
     });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') { overlay.classList.remove('active'); lbImg.src = ''; }
-    });
-  })();
+    GLightbox({ selector: '.glightbox' });
+  });
   </script>
 </body>
 </html>
