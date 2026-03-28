@@ -42,7 +42,7 @@
   <main>
     <div class="container">
       
-      <h1 class="page-title">分类：联动<small>(12 篇)</small></h1>
+      <h1 class="page-title">分类：联动<small>(14 篇)</small></h1>
       <div class="post-list">
         
     <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/t9ewhz9k/">
@@ -200,6 +200,32 @@
       <p class="post-excerpt">2025年3月9日，天气晴，今天去池袋吃 摇曳露营△×正能量企鹅 联动咖啡。</p>
       <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E6%91%87%E6%9B%B3%E9%9C%B2%E8%90%A5%E2%96%B3/">#摇曳露营△</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E8%81%94%E5%8A%A8%E5%92%96%E5%95%A1/">#联动咖啡</a></div>
     </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/iq61g1do/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/iq61g1do/">Key社旗下多款作品的联动咖啡——Key25th Anniversary Party in cafe＆bar MENU</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2025-02-24T10:25:07.000Z">2025-02-24 19:25</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/659a04755232280b2e72ab57/">联动</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/iq61g1do/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202502/67bc57a35831d26183ff6b3d.webp" alt="cover" loading="lazy" width="1280" height="720"></a></div>
+      <p class="post-excerpt">2025年2月23日，天气晴，今天去秋叶原的cafe＆bar MENU吃Key社的联动咖啡——Key25th Anniversary Party in cafe＆bar MENU。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Kanon/">#Kanon</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E8%81%94%E5%8A%A8%E5%92%96%E5%95%A1/">#联动咖啡</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/ku76uz2c/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/ku76uz2c/">最孤独摇滚的一天！《孤独摇滚》联动咖啡与联动卡拉OK包厢</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2025-02-11T01:58:39.000Z">2025-02-11 10:58</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/659a04755232280b2e72ab57/">联动</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/ku76uz2c/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202502/67a9e374cd770251d967f01c.webp" alt="image-bt3c82xs" loading="lazy" width="1000" height="560"></a></div>
+      <p class="post-excerpt">2025年2月9日，天气晴，今天要在池袋体验《孤独摇滚》联动咖啡与联动卡拉OK包厢！</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E8%81%94%E5%8A%A8%E5%92%96%E5%95%A1/">#联动咖啡</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E5%8D%A1%E6%8B%89OK/">#卡拉OK</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E5%AD%A4%E7%8B%AC%E6%91%87%E6%BB%9A/">#孤独摇滚</a></div>
+    </article>
       </div>
     </div>
   </main>
@@ -212,6 +238,23 @@
   <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
     document.querySelectorAll('.rich-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;

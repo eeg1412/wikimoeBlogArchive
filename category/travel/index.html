@@ -42,7 +42,7 @@
   <main>
     <div class="container">
       
-      <h1 class="page-title">分类：日常旅游<small>(8 篇)</small></h1>
+      <h1 class="page-title">分类：日常旅游<small>(9 篇)</small></h1>
       <div class="post-list">
         
     <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/t2vo7c95/">
@@ -148,6 +148,19 @@
       <p class="post-excerpt">2025年4月6日，在结束了《悠哉日常大王/悠悠哉哉少女日和》的圣地巡礼之后，因为还有剩余时间于是选择步行去电车站顺便行赏小川町沿途的风景。</p>
       <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/360%C2%B0%E5%85%A8%E6%99%AF%E7%85%A7%E7%89%87/">#360°全景照片</a></div>
     </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/nl9em44a/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/nl9em44a/">镰仓半日游</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2025-02-26T00:19:26.000Z">2025-02-26 09:19</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/travel/">日常旅游</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/nl9em44a/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202502/67bd249f5831d26183001f67.webp" alt="travel diary Travel diary" loading="lazy" width="1280" height="720"></a></div>
+      <p class="post-excerpt">2025年2月24日，天气晴转多云，今天去镰仓半日游。</p>
+      
+    </article>
       </div>
     </div>
   </main>
@@ -160,6 +173,23 @@
   <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
     document.querySelectorAll('.rich-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;

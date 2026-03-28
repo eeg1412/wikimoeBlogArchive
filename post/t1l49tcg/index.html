@@ -71,6 +71,23 @@
   <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
     document.querySelectorAll('.rich-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;

@@ -173,7 +173,7 @@ img {
   flex-direction: column;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu {
+.nav-dropdown.open .nav-dropdown-menu {
   display: flex;
 }
 
@@ -930,6 +930,12 @@ main {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.acgn-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
 }
 
 .acgn-status-badge {

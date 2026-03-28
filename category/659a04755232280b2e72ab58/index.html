@@ -42,7 +42,7 @@
   <main>
     <div class="container">
       
-      <h1 class="page-title">分类：音乐会<small>(6 篇)</small></h1>
+      <h1 class="page-title">分类：音乐会<small>(8 篇)</small></h1>
       <div class="post-list">
         
     <article class="post-card tweet-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/tb7jha4s/">
@@ -131,6 +131,32 @@
       <p class="post-excerpt">在2024年，有一款独树一帜的战棋游戏——《圣兽之王》，以其独特的魅力赢得了众多玩家的喜爱。于是今天，2025年3月2日，天气晴，要去錦糸町听《圣兽之王》的交响音乐会。</p>
       <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E5%9C%A3%E5%85%BD%E4%B9%8B%E7%8E%8B/">#圣兽之王</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E4%BA%A4%E5%93%8D%E9%9F%B3%E4%B9%90%E4%BC%9A/">#交响音乐会</a></div>
     </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/s11jdkl0/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/s11jdkl0/">乘坐贡多拉回到20年前的那座水城——交响音乐会ARIA The SINFONIA ～Viaggio 2～</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2025-02-18T00:51:13.000Z">2025-02-18 09:51</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/659a04755232280b2e72ab58/">音乐会</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/s11jdkl0/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202502/67b1d646738540834d39f6e5.webp" alt="main_img_v2" loading="lazy" width="1200" height="849"></a></div>
+      <p class="post-excerpt">2025年2月16日，天气晴，今天去錦糸町听交响音乐会ARIA The SINFONIA ～Viaggio 2～。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E6%B0%B4%E6%98%9F%E9%A2%86%E8%88%AA%E5%91%98/">#水星领航员</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/%E4%BA%A4%E5%93%8D%E9%9F%B3%E4%B9%90%E4%BC%9A/">#交响音乐会</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/i6efnqx9/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/i6efnqx9/">梦回2024年的那个夏天——everlasting flowers钢琴音乐会「Rassembler」</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2025-02-01T11:43:27.000Z">2025-02-01 20:43</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/659a04755232280b2e72ab58/">音乐会</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/i6efnqx9/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202502/679dfc6bfc625553a4ada780.webp" alt="image-eda4gnom" loading="lazy" width="1200" height="604"></a></div>
+      <p class="post-excerpt">2025年2月1日，天气晴转阴，就如去年的开箱博文所描述的一样，今天怀着期待的心情去了银座的王子ホール听everlasting flowers钢琴音乐会「Rassembler」。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/everlasting-flowers/">#everlasting-flowers</a></div>
+    </article>
       </div>
     </div>
   </main>
@@ -143,6 +169,23 @@
   <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
     document.querySelectorAll('.rich-content img').forEach(function(img) {
       if (img.closest('a')) return;
       var href = img.getAttribute('data-href') || img.src;
