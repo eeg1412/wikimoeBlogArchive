@@ -926,10 +926,10 @@ main {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 3; */
+  /* -webkit-box-orient: vertical; */
+  /* overflow: hidden; */
 }
 
 .acgn-label {
@@ -1048,9 +1048,9 @@ main {
   height: 124px;
 }
 
-.media-list .acgn-summary {
+/* .media-list .acgn-summary {
   -webkit-line-clamp: 4;
-}
+} */
 
 /* 番剧季节组标题 */
 .media-season-header {
