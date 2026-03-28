@@ -138,6 +138,58 @@ img {
   border-bottom-color: var(--primary);
 }
 
+/* ========== Navigation Dropdown ========== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.nav-dropdown-trigger:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 100;
+  min-width: 100px;
+  padding: 4px 0;
+  flex-direction: column;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: flex;
+}
+
+.nav-dropdown-menu a {
+  padding: 6px 16px;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
 /* ========== Main ========== */
 main {
   flex: 1;
@@ -889,6 +941,11 @@ main {
   color: #ef4444;
 }
 
+.acgn-time-range {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
 /* ========== Content Post/Tweet Links ========== */
 .content-link-item {
   display: block;
@@ -947,34 +1004,11 @@ main {
 .media-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 8px;
 }
 
 .media-list .acgn-card {
   margin-bottom: 0;
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-}
-
-.media-list .acgn-card:first-child {
-  border-top: 1px solid var(--border);
-  border-radius: var(--radius) var(--radius) 0 0;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-}
-
-.media-list .acgn-card:last-child {
-  border-bottom: 1px solid var(--border);
-  border-radius: 0 0 var(--radius) var(--radius);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-}
-
-.media-list .acgn-card:only-child {
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
 }
 
 .media-list .acgn-cover {
@@ -1004,4 +1038,3 @@ main {
 .media-season-header:first-child {
   padding-top: 0;
 }
-
