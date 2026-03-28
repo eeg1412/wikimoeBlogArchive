@@ -940,3 +940,68 @@ main {
     gap: 3px;
   }
 }
+
+/* ========== Media List Pages (番剧/阅读/游戏/剧场版) ========== */
+
+/* 媒体列表容器：在专属页面中给 acgn-card 较大封面 */
+.media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.media-list .acgn-card {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.media-list .acgn-card:first-child {
+  border-top: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.media-list .acgn-card:last-child {
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.media-list .acgn-card:only-child {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.media-list .acgn-cover {
+  width: 90px;
+}
+
+.media-list .acgn-cover img {
+  width: 90px;
+  height: 124px;
+}
+
+.media-list .acgn-summary {
+  -webkit-line-clamp: 4;
+}
+
+/* 番剧季节组标题 */
+.media-season-header {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 16px 0 6px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.media-season-header:first-child {
+  padding-top: 0;
+}
+
