@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>维基萌博客存档</title>
+  <title>维基萌博客档案馆</title>
   <link>https://eeg1412.github.io/wikimoe-blog-archive/</link>
-  <description>用于维基萌博客的存档 原站：https://www.wikimoe.com</description>
+  <description>用于维基萌博客的存档 源站：https://www.wikimoe.com</description>
   <atom:link href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml" rel="self" type="application/rss+xml"/>
   
     <item>
