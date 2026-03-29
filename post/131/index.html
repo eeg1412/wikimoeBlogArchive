@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP urlencode()生成的编码所对应的JS解码 - 维基萌博客档案馆</title>
+  <meta name="description" content="因为要在地址栏里传中文参数，但是地址栏传中文参数是很危险的一件事情，我就用urlencode()转了下。 但是本以为JS的 encodeURI()能解码，但是很可惜不行，于是我找到了可以给PHP urlencode()生成的编码所对应的JS解码。 function urldecode(encodedString){ var output = encodedString; var binVal, t">
+  <meta name="keywords" content="PHP,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/131/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="PHP urlencode()生成的编码所对应的JS解码 - 维基萌博客档案馆">
+  <meta property="og:description" content="因为要在地址栏里传中文参数，但是地址栏传中文参数是很危险的一件事情，我就用urlencode()转了下。 但是本以为JS的 encodeURI()能解码，但是很可惜不行，于是我找到了可以给PHP urlencode()生成的编码所对应的JS解码。 function urldecode(encodedString){ var output = encodedString; var binVal, t">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/131/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>PHP urlencode()生成的编码所对应的JS解码</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2018-04-15T12:24:39.000Z">2018-04-15 21:24</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/PHP/">PHP</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	因为要在地址栏里传中文参数，但是地址栏传中文参数是很危险的一件事情，我就用urlencode()转了下。
+</p>
+<p>
+	但是本以为JS的&nbsp;encodeURI()能解码，但是很可惜不行，于是我找到了可以给PHP urlencode()生成的编码所对应的JS解码。
+</p>
+<p>
+</p><pre class="prettyprint lang-js linenums">function urldecode(encodedString){
+    var output = encodedString;
+    var binVal, thisString;
+    var myregexp = /(%[^%]{2})/;
+    function utf8to16(str)
+    {
+        var out, i, len, c;
+        var char2, char3;
+ 
+        out = "";
+        len = str.length;
+        i = 0;
+        while(i &lt; len) 
+        {
+            c = str.charCodeAt(i++);
+            switch(c &gt;&gt; 4)
+            { 
+                case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
+                out += str.charAt(i-1);
+                break;
+                case 12: case 13:
+                char2 = str.charCodeAt(i++);
+                out += String.fromCharCode(((c &amp; 0x1F) &lt;&lt; 6) | (char2 &amp; 0x3F));
+                break;
+                case 14:
+                char2 = str.charCodeAt(i++);
+                char3 = str.charCodeAt(i++);
+                out += String.fromCharCode(((c &amp; 0x0F) &lt;&lt; 12) |
+                        ((char2 &amp; 0x3F) &lt;&lt; 6) |
+                        ((char3 &amp; 0x3F) &lt;&lt; 0));
+                break;
+            }
+        }
+        return out;
+    }
+    while((match = myregexp.exec(output)) != null
+                &amp;&amp; match.length &gt; 1
+                &amp;&amp; match[1] != '')
+    {
+        binVal = parseInt(match[1].substr(1),16);
+        thisString = String.fromCharCode(binVal);
+        output = output.replace(match[1], thisString);
+    }
+     
+    //output = utf8to16(output);
+    output = output.replace(/\\+/g, " ");
+    output = utf8to16(output);
+    return output;
+}</pre>
+<p></p></div>
+      </div>
+      
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>

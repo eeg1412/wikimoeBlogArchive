@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS大整数(字符串)减法 | 预防JS精度丢失 - 维基萌博客档案馆</title>
+  <meta name="description" content="一般情况下JS使用数字运算比较大的大整数： 10000000000000000 - 1 = 10000000000000000 所以这里还是要用字符串去运算比较大的正整数 function minus(a, b){//字符串减法 a = a.split(''); b = b.split(''); var aMaxb = a.length &gt; b.length; // 标记A是否大于B if(a.l">
+  <meta name="keywords" content="JavaScript,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/168/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="JS大整数(字符串)减法 | 预防JS精度丢失 - 维基萌博客档案馆">
+  <meta property="og:description" content="一般情况下JS使用数字运算比较大的大整数： 10000000000000000 - 1 = 10000000000000000 所以这里还是要用字符串去运算比较大的正整数 function minus(a, b){//字符串减法 a = a.split(''); b = b.split(''); var aMaxb = a.length &gt; b.length; // 标记A是否大于B if(a.l">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/168/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>JS大整数(字符串)减法 | 预防JS精度丢失</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2018-08-02T01:38:49.000Z">2018-08-02 10:38</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	一般情况下JS使用数字运算<span style="white-space:normal;">比较大的</span>大整数：
+</p>
+<p>
+	10000000000000000 - 1 = 10000000000000000
+</p>
+<p>
+	所以这里还是要用字符串去运算比较大的正整数
+</p>
+<pre class="prettyprint lang-js linenums">function minus(a, b){//字符串减法
+    a = a.split('');
+    b = b.split('');
+    var aMaxb = a.length &gt; b.length; // 标记A是否大于B
+    if(a.length == b.length)
+    {
+        for(var i=0, len=a.length; i&lt;len; i++)
+        {
+            if(a[i] == b[i]) continue;
+            aMaxb = a[i] &gt; b[i];
+            break;
+        }
+    }
+    if(!aMaxb){
+        a = [b, b = a][0]; // 只要A不比B大都交换
+    } 
+    var result = '';
+    while(a.length)
+    {
+        var temp = parseInt(a.pop()) - parseInt(b.pop() || 0);
+        if(temp &gt;= 0) {
+            result = temp + result;
+        } else{
+            result = temp + 10 + result;
+            a[a.length-1]--; // 由于已经保证了a一定大于等于b，所以不存在a[i-1]为undefined的情况
+        }
+    }
+    var resultEnd = (aMaxb?'':'-') + result.replace(/^0*/g, '');// 去掉前面可能的无效0
+    if(resultEnd === '-'){
+        resultEnd = '0'
+    }
+    return resultEnd; 
+}</pre>
+<p>
+	例：
+</p>
+<p>
+	minus('10000000000000000000000', '1')<br>
+"9999999999999999999999"
+</p>
+<p>
+	minus('1', '2')<br>
+"-1"
+</p>
+<p>
+	minus('1', '1')<br>
+"0"
+</p>
+<p>
+	修改自：<a href="http://blog.haoji.me/big-int-add-and-minus.html?from=xa" target="_blank"><span style="color:#E56600;">大整数的加减法运算（JavaScript版）</span></a> 
+</p>
+<p>
+	相关文章：<a href="https://eeg1412.github.io/wikimoe-blog-archive/?post=165" target="_blank"><span style="color:#E56600;">《</span><span style="color:#E56600;">JS大整数(字符串)相乘与字符串乘以n个0&nbsp;</span><span style="color:#E56600;">》</span></a>、<a href="https://eeg1412.github.io/wikimoe-blog-archive/?post=162" target="_blank"><span style="color:#E56600;">《</span><span style="color:#E56600;">整数数字用字符串相加</span><span style="color:#E56600;">》</span></a> 
+</p></div>
+      </div>
+      
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面底部莫名其妙空出一行的原因查明 | ClCache - 维基萌博客档案馆</title>
+  <meta name="description" content="因为有人反应，我之前做的Typecho《四女神Online》主题模板会在360浏览器中出现底部空出一行的现象。 于是我就也下来360浏览器进行验证，发现并没有这个问题。 后来叫出现问题的人审查元素后发现底部多了一行代码。 &lt;div&gt;&lt;object id=&quot;ClCache&quot; click=&quot;sendMsg&quot; host=&quot;&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;&lt;/object&gt;&lt;/div&gt; 然后">
+  <meta name="keywords" content="杂谈,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/150/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="页面底部莫名其妙空出一行的原因查明 | ClCache - 维基萌博客档案馆">
+  <meta property="og:description" content="因为有人反应，我之前做的Typecho《四女神Online》主题模板会在360浏览器中出现底部空出一行的现象。 于是我就也下来360浏览器进行验证，发现并没有这个问题。 后来叫出现问题的人审查元素后发现底部多了一行代码。 &lt;div&gt;&lt;object id=&quot;ClCache&quot; click=&quot;sendMsg&quot; host=&quot;&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;&lt;/object&gt;&lt;/div&gt; 然后">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/150/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>页面底部莫名其妙空出一行的原因查明 | ClCache</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2018-06-08T14:05:54.000Z">2018-06-08 23:05</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/casualtalk/">杂谈</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	因为有人反应，我之前做的<a href="https://eeg1412.github.io/wikimoe-blog-archive/?post=96" target="_blank"><span style="color:#E56600;">Typecho《四女神Online》主题模板</span></a>会在360浏览器中出现底部空出一行的现象。
+</p>
+<p>
+	<a target="_blank" href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201806/4f7e1528466872.jpg" id="ematt:234"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201806/4f7e1528466872.jpg" title="点击查看原图" alt="微信图片_20180608220502.jpg" border="0" width="800" height="96" data-href="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201806/4f7e1528466872.jpg"></a> 
+</p>
+<p>
+	于是我就也下来360浏览器进行验证，发现并没有这个问题。
+</p>
+<p>
+	后来叫出现问题的人审查元素后发现底部多了一行代码。
+</p>
+<p>
+	<br>
+</p>
+<pre class="prettyprint lang-html linenums">&lt;div&gt;&lt;object id="ClCache" click="sendMsg" host="" width="0" height="0"&gt;&lt;/object&gt;&lt;/div&gt;  </pre>
+<p>
+	<br>
+</p>
+<p>
+	然后我又检查了一遍代码，发现并没有什么脚本会输出这么一行东西的呀？
+</p>
+<p>
+	难道又是电信劫持？
+</p>
+<p>
+	最后极光萝卜大佬说这是工（ai）商(cun)银(bu)行(cun)的网银助手导致的。
+</p>
+<p>
+	原来装工行网银助手的时候会被装上chrome内核的插件——ICBCChromeExtension。
+</p>
+<p>
+	这个插件对谷歌浏览器内核有版本限制，最低21.0，最高24.9。
+</p>
+<p>
+	不在这个区间内的话会导致页面底部出现上面提到的代码。出现也就算了，似乎会所有网页都有。有的网页本来就是纯色可能不会有什么问题，但是像我上面的模板就会出现上面图片那样的情况。简直就是大坑！
+</p></div>
+      </div>
+      
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>

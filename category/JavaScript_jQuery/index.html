@@ -42,7 +42,7 @@
   <main>
     <div class="container">
       
-      <h1 class="page-title">分类：JavaScript<small>(1 篇)</small></h1>
+      <h1 class="page-title">分类：JavaScript<small>(33 篇)</small></h1>
       <div class="post-list">
         
     <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/65b49075f103a1ddcb83deb1/">
@@ -57,6 +57,422 @@
       <p class="post-excerpt">一直以来，视频网站的视频压缩和剪辑往往都是通过服务器后台进行操作的，但是对于像是个人博客这样微弱的服务器算力和流量，将视频交由服务器来处理实在是有点为难服务器了。
 那么有没有什么办法可以通过浏览器前端对视频进行操作的办法呢？这里就来推荐一款好用的前端视频处理依赖包——ffmpeg.wasm</p>
       <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/ffmpeg.wasm/">#ffmpeg.wasm</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/278/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/278/">关于更新vue-cli 5后 在Less中使用了public路径下资产会报错的问题解决</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2023-04-17T06:18:39.000Z">2023-04-17 15:18</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/278/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">根本原因是新的vue-cli用的css-loader默认会将&quot;/a.png&quot; 视为 &quot;require('/a.png')&quot;导致的。 此时需要配置vue.config.js，添加如下内容 css: { loaderOptions: { css: { url: { filter: url =&gt; url[0] !== '/' } } } } 参考链接：https://github.com/vuejs/v</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/263/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/263/">HTML5 Canvas在预加载完字体后绘图</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2021-11-01T12:08:20.000Z">2021-11-01 21:08</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/263/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">有时候在绘制canvas的时候可能会用到一些特殊字体。而中文字体例如是用类似谷歌字体加载的话，可能会是分段加载，DOM不一定会加载过某些字体从而导致在绘制canvas时出现字体缺失。 这个时候可以使用如下代码预加载css中的字体 document.fonts.load 实际使用案例： const loadTextFont = async (fontSize, text) =&gt; { await do</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/260/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/260/">解决Ionic Vue生命周期钩子无法调用的问题</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2021-05-23T09:03:02.000Z">2021-05-23 18:03</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/260/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202105/0cfb1621760550.jpg" alt="未标题-2.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">在Ionic中，Vue的生命周期是被接管的。 因为Ionic对页面进行了缓存，所以每次页面只有第一次加载时才会触发Vue的生命周期，所以为了防止出现奇怪的问题，往往会用Ionic的生命周期，但是Ionic的生命周期问题也不少。 在Ionic中，有如下的生命周期 名称 描述 ionViewWillEnter 页面进入时触发 ionViewDidEnter 页面进入动画结束后触发 ionViewWil</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Ionic/">#Ionic</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/259/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/259/">解决Ionic在iOS中无法长按保存图片的问题</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2021-05-23T08:52:59.000Z">2021-05-23 17:52</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/259/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/202105/0cfb1621760550.jpg" alt="未标题-2.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">先说答案： 在需要长按保存的图片中增加一段样式 -webkit-touch-callout: default !important; 原理： 这是一段苹果Safari专用的样式，用途就是禁止图片的长按保存。估计Ionic的UI策略本来是也想禁止掉安卓的长按保存，但是安卓似乎没有对应的方案，就唯独给苹果设置上了...因为自己用的是安卓的手机，项目是明确要求长按保存的，结果一直没有发现这个问题，属实坑</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Ionic/">#Ionic</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/243/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/243/">禁止饿了么Element UI的Button 按钮组件的回车事件</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2019-12-08T07:49:32.000Z">2019-12-08 16:49</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/243/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">在Element UI里，如果点击过一次某个按钮，这个按钮就会被选择，然后这个时候按下回车就会连续触发按钮的点击事件，对一些需要服务器交互的按钮来说太过不友善。 根据官方文档，似乎禁不了这个事件，那么只能通过代码去禁止了。 &lt;el-button type=&quot;primary&quot; ref=&quot;btn&quot;&gt;按钮&lt;/el-button&gt; 首先给按钮定义一个ref。 mounted() { this.$refs.</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/226/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/226/">JS根据列表排列对象数组</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2019-05-08T01:39:51.000Z">2019-05-08 10:39</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/226/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">应用场景：将对象数组根据指派的数组内容进行排序，未指定的对象按照原始顺序。 const nodeData_ = [ {account:'a',node:1}, {account:'b',node:2}, {account:'c',node:3}, {account:'d',node:4}, {account:'e',node:5}, {account:'f',node:6} ] const sor</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/198/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/198/">【Vue 笔记】在搜索结果中高亮关键字</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-10-29T02:14:05.000Z">2018-10-29 11:14</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/198/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">需求：有一组关键词数组，在数组中筛选出符合关键字的内容并将关键字高亮。 最终效果： HTML： &lt;div class=&quot;q_iw_input_tip_item&quot; v-for=&quot;(item, key, index) in wordTips&quot; :key=&quot;index&quot;&gt; &lt;span&gt;{{item.substr(0,item.indexOf(inputVal))}}&lt;/span&gt;&lt;span class=</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/197/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/197/">解决electron-vue中无法Element的Tooltip组件</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-10-27T08:09:15.000Z">2018-10-27 17:09</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/197/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">打开文件：electron-vue/webpack.renderer.config.js 在大约21行左右找到 let whiteListedModules 将element-ui添加进去，最终如下所示。 let whiteListedModules = ['vue', 'element-ui'] 最后重启下项目就好了。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/electron/">#electron</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/189/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/189/">【H5小游戏】利用pixi.js重写了赛车小游戏</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-09-16T10:16:46.000Z">2018-09-16 19:16</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/189/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">早在去年十月，我写过一篇题为《【H5小游戏】制作一个简单的赛车游戏》的文章。基于最基本的canvas功能，而且是以格子的形式去刷新游戏界面，游戏原理类似上世纪的game&amp;watch。 然后最近学了些pixi.js的东西（相关文章可以从《2D WebGL renderer Pixi.js v4 入门【第一回】》开始看），于是就把游戏换成了基于pixi.js的游戏。 游戏质量也从game&amp;watch模</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/H5%E5%B0%8F%E6%B8%B8%E6%88%8F/">#H5小游戏</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/187/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/187/">2D WebGL renderer Pixi.js v4 入门【最终回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-09-12T05:47:31.000Z">2018-09-12 14:47</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/187/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前情回顾 上回链接：《2D WebGL renderer Pixi.js v4 入门【第五回】》 上回学习了WebGL的各种图像与文字的绘制。 检测碰撞 上图为理想状态。 左边的猫能够使用键盘操作，右边的块是无法移动的，然后上面的信息提示状态。 在基于&lt;第三回&gt;的键盘控制所写的代码中， 改造和追加了一部分代码。 var 猫, 块, 消息, 状态; function setup(){ 放入猫; 制作</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/176/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/176/">2D WebGL renderer Pixi.js v4 入门【第五回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-31T07:08:01.000Z">2018-08-31 16:08</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/176/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前情回顾 上回链接：《2D WebGL renderer Pixi.js v4 入门【第四回】》 上回我们说了精灵的编组以及Container和ParticleContainer。 这次我们来说说WebGL的图形绘制吧。 图形绘制的方法 如果懂canvas自带的图形绘制功能的话，大可跳过这里。 首先使用PIXI.Graphics，描绘各种图形。 // 画矩形 var rectangle = new</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/175/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/175/">2D WebGL renderer Pixi.js v4 入门【第四回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-31T05:36:36.000Z">2018-08-31 14:36</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/175/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前情回顾 上回链接：《2D WebGL renderer Pixi.js v4 入门【第三回】》 精灵制作篇完结了，在前面我们尝试制作了一些（无限）动画呢。 然后还制作了根据方向键移动的精灵。 精灵的编组 所谓编组就是制作一个新的Container()，将出现在同一场景下的东西集中起来传到renderer中。 使得精灵的管理变得更加便捷了呢！ var id = resources[&quot;images/</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/173/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/173/">2D WebGL renderer Pixi.js v4 入门【第三回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-31T04:14:43.000Z">2018-08-31 13:14</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/173/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前情回顾 上回链接：《2D WebGL renderer Pixi.js v4 入门【第二回】》 介绍完了精灵制作的其中两种方法。 剩下介绍完第三种方法吧。 三种方法： 1.使用图像（一个一个读取进去） 2.将项目内用到的所有图片（sub-image）全部集合成一张大图片（tileset）使用。（就是将大量小图合成一张） 3.通过JSON（texture atlas）指定大图（tileset）中各</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/172/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/172/">2D WebGL renderer Pixi.js v4 入门【第二回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-31T03:20:49.000Z">2018-08-31 12:20</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/172/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前情回顾 上回链接：《2D WebGL renderer Pixi.js v4 入门【第一回】》 介绍了精灵的三种方法。 三种方法： 1.使用图像（一个一个读取进去） 2.将项目内用到的所有图片（sub-image）全部集合成一张大图片（tileset）使用。（就是将大量小图合成一张） 3.通过JSON（texture atlas）指定大图（tileset）中各自图像的位置和大小。 1.使用图像并</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/171/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/171/">2D WebGL renderer Pixi.js v4 入门【第一回】</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-31T02:25:05.000Z">2018-08-31 11:25</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/171/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201808/ebef1533738332.jpg" alt="未标题-4.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">Start with pixi.js 首先先引入pixi.js吧！ 但是由于这是个练习，所以想快一点就直接读了CDN。 制作html。 &lt;!DOCTYPE html&gt; &lt;html lang=&quot;ja&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Start with pixi.js&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;script src=&quot;https:/</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/pixi.js/">#pixi.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/168/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/168/">JS大整数(字符串)减法 | 预防JS精度丢失</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-08-02T01:38:49.000Z">2018-08-02 10:38</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/168/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">一般情况下JS使用数字运算比较大的大整数： 10000000000000000 - 1 = 10000000000000000 所以这里还是要用字符串去运算比较大的正整数 function minus(a, b){//字符串减法 a = a.split(''); b = b.split(''); var aMaxb = a.length &gt; b.length; // 标记A是否大于B if(a.l</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/166/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/166/">JS十进制大整数转十六进制字符串 预防精度缺失</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-07-23T06:39:53.000Z">2018-07-23 15:39</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/166/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">因为JS的精度缺失导致大整数在十六进制转换上也会有精度确实。 例如： Number('999999999999999999').toString(16) &quot;de0b6b3a7640000&quot; 0xde0b6b3a7640000 = 1000000000000000000 这个时候可以先用以前文章提到过的大整数字符串运算来得出数字字符串，然后再通过下面的方法来转换成十六进制字符串。 function </p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/165/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/165/">JS大整数(字符串)相乘与字符串乘以n个0 | 预防JS精度丢失 | JS字符串乘法</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-07-23T04:08:54.000Z">2018-07-23 13:08</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/165/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">大整数相乘： function multi(a,b){ var str1,str2,len1,len2,maxlen,result = []; str1 = a.split(&quot;&quot;).reverse(); str2 = b.split(&quot;&quot;).reverse(); len1 = str1.length; len2 = str2.length; for(var i = 0;i &lt; len1;i++){</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/162/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/162/">预防JS精度丢失之字符串除以n个0 与 整数数字用字符串相加 的解决方案</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-07-05T04:31:41.000Z">2018-07-05 13:31</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/162/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">因为JavaScript精度丢失的问题，经常会出现一些骚操作，例如： 999900000000630000/1000000000000000000 返回结果：0.9999000000006301 迷之多了01 这时候换个角度思考，不用数学运算，改为字符串操作，比如上面的例子是除以18个0就是向前挪18位加个小数点。 那么直接丢代码： function stringAddPoint(num,s){ </p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/160/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/160/">解决vue-cli（Node.js）局域网IP不行只能使用localhost或者127.0.0.1来访问</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-06-26T07:08:04.000Z">2018-06-26 16:08</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/160/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">因为需要让局域网内其他人也能访问到自己的项目，所以必须要使用局域网IP来访问。但是发现只有localhost或者127.0.0.1能访问到项目，局域网内的IP死都不行。 后来搜索了一把，发现其实很简单就能解决。 只用把vue-cli项目下的config文件夹下面的index.js文件里的localhost改为0.0.0.0就可以了。 这样修改也不妨碍127.0.0.1或者localhost的访问。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/157/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/157/">【Vue 笔记】Vue 读取excel数据并生成数组</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-06-22T03:03:08.000Z">2018-06-22 12:03</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/157/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">因为需求需要读取excel的.xlsx和.xls文件来批量生成网页数据。找了网上的资料后发现js-xlsx可以实现。 首先安装依赖： $ npm install xlsx HTML部分： &lt;input type=&quot;file&quot; ref=&quot;upload&quot; accept=&quot;.xls,.xlsx&quot; class=&quot;outputlist_upload&quot;&gt; 引入： import XLSX from 'xlsx'</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/JavaScript/">#JavaScript</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/156/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/156/">【JavaScript 笔记】二进制数组转十六进制字符串  &amp;&amp; 十六进制字符串转二进制数组 &amp;&amp; 字节流二维码</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-06-22T02:45:58.000Z">2018-06-22 11:45</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/156/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">因为需要需要生成一张字节流二维码，然后研究了下原理大致是： 十六进制数据→二进制数组→通过fromCharCode转换回字符串→通过qrious等不支持生成中文二维码的二维码生成库生成二维码。 用到的代码如下： 十六进制字符串转二进制数组： /** * @desc 十六进制字符串转二进制数组 */ function Str2Bytes(str){ var pos = 0; var len = st</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/JavaScript/">#JavaScript</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/live2d-mashiro/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/live2d-mashiro/">博客通用版Live2d椎名真白</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-06-18T04:29:44.000Z">2018-06-18 13:29</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/live2d-mashiro/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201806/88b71529297739.jpg" alt="banner.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">Live2d的看板娘——椎名真白 在原先的基础上加上了如下功能： 1.可以基于图灵机器人的聊天功能（需要自己写接口，默认隐藏）。 2.能够随意移动并记录位置（关闭浏览器后失效）。 3.能够随意唤醒或者关闭并记录状态。 4.自动判断浏览器是否为IE或者手机浏览器，如果判断为true则不加载模型。 5.给骚扰加了限制频率，不能狂骚扰了。 6.增加换装功能。 准备工作 首先下载代码 链接：https:/</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Live2d/">#Live2d</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/146/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/146/">熊猫记仇表情在线生成代码</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-05-17T04:51:26.000Z">2018-05-17 13:51</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/146/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">试着用Canvas做了时下比较流行的熊猫记仇 测试预览： .jichou_body{ text-align: center; } .jichou_textarea{ width: 416px; height: 216px; max-width:100%; border:1px solid #000; } #jichou{ max-width:100%; height:auto; } 保存 var </p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/canvas/">#canvas</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/123/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/123/">【JavaScript 笔记】用正则来获取网页地址栏参数</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-04-02T04:50:06.000Z">2018-04-02 13:50</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/123/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">function GetURLparam(name){ var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;); var r = window.location.search.substr(1).match(reg); if(r!=null)return unescape(r[2]); return null; } GetURLparam('想要获</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/120/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/120/">博客通用版Live2d蕾姆 | 雷姆</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-24T04:45:28.000Z">2018-03-24 13:45</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/120/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201803/64ac1521866771.jpg" alt="未标题-1.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">Live2d的看板娘——蕾姆(Rem) 伊斯特瓦尔点这里。 在原先的基础上加上了如下功能： 1.可以基于图灵机器人的聊天功能（需要自己写接口，默认隐藏）。 2.能够随意移动并记录位置（关闭浏览器后失效）。 3.能够随意唤醒或者关闭并记录状态。 4.自动判断浏览器是否为IE或者手机浏览器，如果判断为true则不加载模型。 5.给骚扰加了限制频率，不能狂骚扰了。 准备工作 首先下载代码（码云点这里下载</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Live2d/">#Live2d</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/109/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/109/">【JavaScript 笔记】base58加密解密 &amp; 字符串转二进制数组 &amp; ascii码转字符 &amp; Hash sha256加密输出ascii字符</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-21T02:50:24.000Z">2018-03-21 11:50</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/109/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">base58加密解密： var ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz' var ALPHABET_MAP = {} for(var i = 0; i &lt; ALPHABET.length; i++) { ALPHABET_MAP[ALPHABET.charAt(i)] = i } var BASE</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/108/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/108/">【RPG Maker MV】插件脚本指令文档 | Script Calls</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-19T08:10:12.000Z">2018-03-19 17:10</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/108/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201707/89991499045525.jpg" alt="rpglogo.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">Event Pages Script Call： Battle-Related Script Calls： SceneManager._scene._logWindow.addText('text');战斗时增加提示。 SceneManager._scene._logWindow.clear();战斗时去除提示。</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/RPGMakerMV/">#RPGMakerMV</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/107/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/107/">base64转二进制数组（ArrayBuffer） Javascript | 微信小程序</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-19T06:58:19.000Z">2018-03-19 15:58</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/107/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">在浏览器中我们可以使用如下代码将base64转换层二进制数组。 function _base64ToArrayBuffer(base64) { var binary_string = window.atob(base64); var len = binary_string.length; var bytes = new Uint8Array( len ); for (var i = 0; i &lt; </p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/106/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/106/">【RPG Maker MV】 解谜游戏常用的输入文字并进行比较以及变量操作方法$gameVariables</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-17T15:06:22.000Z">2018-03-18 00:06</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/106/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201707/89991499045525.jpg" alt="rpglogo.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">在解谜游戏中经常要用到字符的比对而不是数字的比对，在我以前做的小游戏里是通过各种选择项来拼成英文单词，体验贼差。 这时候可以用一款插件：CmdInp.js 链接：https://pan.baidu.com/s/1Cv9iRLY6G7iq9J9mKhabOw 密码：8szb 原插件转自：这里 原插件有2个BUG我上面提供的文件修复了一下，修复BUG如下。 1.修复默认会生成一个空格，导致输入框从第二</p>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/RPGMakerMV/">#RPGMakerMV</a></div>
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/101/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/101/">用canvas做 精灵 | 光点 | 粒子 | 光子 飘动的效果</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-08T09:01:04.000Z">2018-03-08 18:01</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/101/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201603/7e3d1457954037.jpg" alt="cat_javascript.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">前面做《四女神Online》模板的时候参照code pen上的一则飘雪效果改的。 首先引入HTML并想好canvas的ID： &lt;canvas id='canvasbg' class=&quot;star_effect&quot;&gt;&lt;/canvas&gt; 然后引入JS： (function() { var Base, Particle, canvas, colors, context, drawables, i, mous</p>
+      
+    </article>
+
+    <article class="post-card" data-href="https://eeg1412.github.io/wikimoe-blog-archive/post/99/">
+      <h2><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/99/">【Vue.js】过滤器时间戳转换成yy-mm-dd hh:mm:ss格式</a></h2>
+      <div class="post-meta">
+        <span class="post-type-badge blog">博文</span>
+        <span class="post-author">广树</span>
+        <time class="post-date" datetime="2018-03-06T08:16:10.000Z">2018-03-06 17:16</time>
+        <a class="post-category" href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a>
+      </div>
+      <div class="post-cover"><a href="https://eeg1412.github.io/wikimoe-blog-archive/post/99/"><img src="https://filedn.eu/lgBqVslpFWCkYuND5NfXwQB/wikimoe/content/uploadfile/201708/262b1503221274.jpg" alt="vue.jpg" loading="lazy" width="336" height="162"></a></div>
+      <p class="post-excerpt">经常用到备份下，方便复制。 filters: { capitalize: function (value) { var date = new Date(parseInt(value)); var tt = [date.getFullYear(), date.getMonth()+1, date.getDate()].join('-') + ' ' +[date.getHours(), date.g</p>
+      
     </article>
       </div>
     </div>

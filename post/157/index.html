@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Vue 笔记】Vue 读取excel数据并生成数组 - 维基萌博客档案馆</title>
+  <meta name="description" content="因为需求需要读取excel的.xlsx和.xls文件来批量生成网页数据。找了网上的资料后发现js-xlsx可以实现。 首先安装依赖： $ npm install xlsx HTML部分： &lt;input type=&quot;file&quot; ref=&quot;upload&quot; accept=&quot;.xls,.xlsx&quot; class=&quot;outputlist_upload&quot;&gt; 引入： import XLSX from 'xlsx'">
+  <meta name="keywords" content="JavaScript,Vue.js,JavaScript,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/157/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="【Vue 笔记】Vue 读取excel数据并生成数组 - 维基萌博客档案馆">
+  <meta property="og:description" content="因为需求需要读取excel的.xlsx和.xls文件来批量生成网页数据。找了网上的资料后发现js-xlsx可以实现。 首先安装依赖： $ npm install xlsx HTML部分： &lt;input type=&quot;file&quot; ref=&quot;upload&quot; accept=&quot;.xls,.xlsx&quot; class=&quot;outputlist_upload&quot;&gt; 引入： import XLSX from 'xlsx'">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/157/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>【Vue 笔记】Vue 读取excel数据并生成数组</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2018-06-22T03:03:08.000Z">2018-06-22 12:03</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	因为需求需要读取excel的.xlsx和.xls文件来批量生成网页数据。找了网上的资料后发现js-xlsx可以实现。
+</p>
+<p>
+	<strong>首先安装依赖：</strong> 
+</p>
+<pre class="prettyprint linenums">$ npm install xlsx</pre>
+<p>
+	<strong>HTML部分：</strong> 
+</p>
+<pre class="prettyprint lang-html linenums">&lt;input type="file" ref="upload" accept=".xls,.xlsx" class="outputlist_upload"&gt;</pre>
+<p>
+	<strong>引入：</strong> 
+</p>
+<pre class="prettyprint linenums">import XLSX from 'xlsx'</pre>
+<p>
+	<strong>设置数据：</strong> 
+</p>
+<pre class="prettyprint lang-js linenums">data() {
+    return {
+        outputs: []
+    }
+},</pre>
+<p>
+	<strong>给input标签绑定监听事件：</strong> 
+</p>
+<pre class="prettyprint lang-js linenums">mounted() {
+    this.$refs.upload.addEventListener('change', e =&gt; {//绑定监听表格导入事件
+    this.readExcel(e);
+    })
+},</pre>
+<p>
+	<strong>读取excel文件信息并输出内容：</strong> 
+</p>
+<pre class="prettyprint lang-js linenums">methods: {
+    readExcel(e) {//表格导入
+        var that = this;
+        const files = e.target.files;
+        console.log(files);
+        if(files.length&lt;=0){//如果没有文件名
+        return false;
+        }else if(!/\.(xls|xlsx)$/.test(files[0].name.toLowerCase())){
+        this.$Message.error('上传格式不正确，请上传xls或者xlsx格式');
+        return false;
+        }
+
+        const fileReader = new FileReader();
+        fileReader.onload = (ev) =&gt; {
+        try {
+            const data = ev.target.result;
+            const workbook = XLSX.read(data, {
+            type: 'binary'
+            });
+            const wsname = workbook.SheetNames[0];//取第一张表
+            const ws = XLSX.utils.sheet_to_json(workbook.Sheets[wsname]);//生成json表格内容
+            console.log(ws);
+            that.outputs = [];//清空接收数据
+            for(var i= 0;i&lt;ws.length;i++){
+            var sheetData = {
+                address: ws[i].addr,
+                value: ws[i].value
+            }
+            that.outputs.push(sheetData);
+            }
+            this.$refs.upload.value = '';
+
+        } catch (e) {
+
+            return false;
+        }
+        };
+        fileReader.readAsBinaryString(files[0]);
+    }
+},</pre>
+<p>
+	<strong>输出结果示例（outputs）：</strong> 
+</p>
+<pre class="prettyprint lang-js linenums">[{
+    addr:'abcadadadad',
+    value:0.001
+},
+{
+    addr:'abcadadadad',
+    value:0.001
+}]</pre>
+<p>
+	<strong>注意：</strong> 
+</p>
+<p>
+	excel的第一行必须是对应的键值，比如：
+</p>
+<p>
+	</p><table style="width:100%;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
+		<tbody>
+			<tr>
+				<td>
+					addr<br>
+				</td>
+				<td>
+					value
+				</td>
+			</tr>
+			<tr>
+				<td>
+					abcadadadad<br>
+				</td>
+				<td>
+					0.001
+				</td>
+			</tr>
+			<tr>
+				<td>
+					abcadadadad<br>
+				</td>
+				<td>
+					0.001
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<p></p></div>
+      </div>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/Vue.js/">#Vue.js</a><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/JavaScript/">#JavaScript</a></div>
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>

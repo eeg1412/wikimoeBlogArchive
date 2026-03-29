@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>让emlog微语支持html5上传分享图片 - 维基萌博客档案馆</title>
+  <meta name="description" content="注意：本教程仅支持emlog官方原版5.3.1，其他版本的emlog请不要轻易尝试。切记覆盖文件时要先备份！ 前言： 由于emlog 5.3.1 历史悠久。其微语所使用的分享图片上传插件为一个flash版的uploadify。 但是众所周知，随着flash的淘汰，很多浏览器已经屏蔽了flash，这就导致了微语的上传图片不好用。 于是就想看看能不能改写emlog的图片上传机制。 经过一番搜索，发现u">
+  <meta name="keywords" content="PHP,emlog,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/211/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="让emlog微语支持html5上传分享图片 - 维基萌博客档案馆">
+  <meta property="og:description" content="注意：本教程仅支持emlog官方原版5.3.1，其他版本的emlog请不要轻易尝试。切记覆盖文件时要先备份！ 前言： 由于emlog 5.3.1 历史悠久。其微语所使用的分享图片上传插件为一个flash版的uploadify。 但是众所周知，随着flash的淘汰，很多浏览器已经屏蔽了flash，这就导致了微语的上传图片不好用。 于是就想看看能不能改写emlog的图片上传机制。 经过一番搜索，发现u">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/211/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>让emlog微语支持html5上传分享图片</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2019-01-23T13:13:26.000Z">2019-01-23 22:13</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/PHP/">PHP</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	<strong><span style="color:#E53333;">注意：本教程仅支持emlog官方原版5.3.1，其他版本的emlog请不要轻易尝试。切记覆盖文件时要先备份！</span></strong> 
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<strong>前言：</strong> 
+</p>
+<p>
+	由于emlog 5.3.1 历史悠久。其微语所使用的分享图片上传插件为一个flash版的uploadify。
+</p>
+<p>
+	但是众所周知，随着flash的淘汰，很多浏览器已经屏蔽了flash，这就导致了微语的上传图片不好用。
+</p>
+<p>
+	于是就想看看能不能改写emlog的图片上传机制。
+</p>
+<p>
+	经过一番搜索，发现uploadify这款插件的html5版是收费的！但是很幸运有大佬改写了一个html5版，名为<a href="https://github.com/Double-Lv/Huploadify" target="_blank"><span style="color:#E56600;">Huploadify</span></a>。API和原版几乎一致。于是我就改写了emlog的分享图片的代码。
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<strong>下载：</strong> 
+</p>
+<p>
+	地址：<a href="http://www.wikimoe.com/ucloudImg/sh/download/20190123/emlog_html5_image_upload.zip" target="_blank"><span style="color:#E56600;">&lt;点击下载&gt;</span></a> 
+</p>
+<p>
+	<br>
+</p>
+<p>
+	<strong>使用：</strong> 
+</p>
+<p>
+	1.将下载来的文件解压。
+</p>
+<p>
+	2.将 jquery.uploadify.min.js 放到目录 include/lib/js/uploadify/ 下面，先备份再覆盖。
+</p>
+<p>
+	3.将 twitter.php 放到目录&nbsp;admin/views/ 下面，先备份再覆盖。
+</p>
+<p>
+	4.刷新下页面，就可以用html5的方式上传分享图片啦！
+</p></div>
+      </div>
+      <div class="tag-list"><a class="tag-item" href="https://eeg1412.github.io/wikimoe-blog-archive/tag/emlog/">#emlog</a></div>
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>
