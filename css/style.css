@@ -144,6 +144,7 @@ img {
 }
 
 .nav-dropdown-trigger {
+  display: block;
   cursor: pointer;
   font-size: 0.875rem;
   color: var(--text-secondary);
@@ -540,6 +541,22 @@ main {
 }
 
 /* ========== Media Description Tag ========== */
+.media-tag-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 2px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.media-tag-list .media-desc-tag {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
 .media-desc-tag {
   position: absolute;
   top: 0;
@@ -580,7 +597,7 @@ main {
   pointer-events: none;
 }
 
-.media-desc-tag:hover::after {
+.media-desc-tag[data-desc]:hover::after {
   display: block;
 }
 
@@ -652,6 +669,10 @@ main {
 .post-content {
   font-size: 1rem;
   line-height: 1.9;
+}
+
+.post-content a {
+  word-break: break-all;
 }
 
 /* 博文富文本专用层 */
