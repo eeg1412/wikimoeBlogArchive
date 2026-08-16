@@ -7,6 +7,15 @@
   <atom:link href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml" rel="self" type="application/rss+xml"/>
   
     <item>
+      <title>在六本木 《药屋少女的呢喃》 联动 东京城市观景台。
+巨大的猫猫好可爱呀！</title>
+      <link>https://eeg1412.github.io/wikimoe-blog-archive/post/t-tjukwqby/</link>
+      <guid>https://eeg1412.github.io/wikimoe-blog-archive/post/t-tjukwqby/</guid>
+      <description>在六本木 《药屋少女的呢喃》 联动 东京城市观景台。
+巨大的猫猫好可爱呀！</description>
+      <pubDate>Sun, 16 Aug 2026 05:36:25 GMT</pubDate>
+    </item>
+    <item>
       <title>《零之使魔》20周年展</title>
       <link>https://eeg1412.github.io/wikimoe-blog-archive/post/t-tjqzi24l/</link>
       <guid>https://eeg1412.github.io/wikimoe-blog-archive/post/t-tjqzi24l/</guid>
@@ -173,19 +182,6 @@ https://www.bilibili.com/video/BV1fe356vEe9</description>
       <guid>https://eeg1412.github.io/wikimoe-blog-archive/post/t-tih1wv1s/</guid>
       <description>今日状态</description>
       <pubDate>Mon, 20 Jul 2026 11:43:43 GMT</pubDate>
-    </item>
-    <item>
-      <title>尝试让新出的GPT 5.6制作了一个图片压缩的小工具。
-使用了electron构筑。
-可以在wind</title>
-      <link>https://eeg1412.github.io/wikimoe-blog-archive/post/t-ti40pb2d/</link>
-      <guid>https://eeg1412.github.io/wikimoe-blog-archive/post/t-ti40pb2d/</guid>
-      <description>尝试让新出的GPT 5.6制作了一个图片压缩的小工具。
-使用了electron构筑。
-可以在windows电脑上直接打开使用。
-恭喜你的电脑又多了一个chrome。
-地址：https://github.com/eeg1412/blog-image-compression-tool</description>
-      <pubDate>Mon, 13 Jul 2026 10:48:47 GMT</pubDate>
     </item>
 </channel>
 </rss>
